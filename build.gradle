@@ -1,0 +1,47 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'org.springframework.experimental.aot' version '0.10.3'
+    id 'org.graalvm.buildtools.native' version '0.9.3'
+}
+
+group = 'com.lemine'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    maven { url 'https://repo.spring.io/release' }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation group: 'org.keycloak', name: 'keycloak-spring-boot-starter', version: '12.0.4'
+    implementation group: 'org.keycloak', name: 'keycloak-admin-client', version: '12.0.4'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    compileOnly group: 'org.keycloak', name: 'keycloak-server-spi', version: '13.0.0'
+    compileOnly group: 'org.keycloak', name: 'keycloak-core', version: '13.0.0'
+    compileOnly group: 'org.keycloak', name: 'keycloak-server-spi-private', version: '13.0.0'
+    compileOnly group: 'org.keycloak', name: 'keycloak-services', version: '13.0.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+bootBuildImage {
+    builder = 'paketobuildpacks/builder:tiny'
+    environment = ['BP_NATIVE_IMAGE': 'true']
+}
+
+nativeBuild {
+    classpath processAotResources.outputs, compileAotJava.outputs
+}
+
+nativeTest {
+    classpath processAotTestResources.outputs, compileAotTestJava.outputs
+}
