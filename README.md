@@ -22,3 +22,15 @@ Some extra implemented interfaces :
 
 - **CredentialInputValidator :** We've implemented this interface to be able to control and validate different types of credentials such as passwords.
 - **UserLookupProvider :** implemented to log in with users from different sources.
+
+### How to undeploy your SPI 🤔  : 
+to undeploy your SPI just remove the pasted .jar file from the **deployments** keycloak folder.
+
+### Want to contribute ?
+To contribute to this project, just clone it with :
+
+````shell
+git clone https://pcadev@dev.azure.com/pcadev/MAI/_git/Keycloak_SPI
+````
+
+then create your custom PR as a new branch, all contributions are most welcome 😉.
