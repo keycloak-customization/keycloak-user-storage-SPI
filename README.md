@@ -1,7 +1,7 @@
 ### About ❗ 💡:
 A keycloak user storage SPI to import users to the keycloak users storage, with this storage you can import users from any source such as SQL-server, DynamoDB, or another remote server.
 
-**N.B :** You can also do this with your custom keycloak rest api SPI, contact the [maintainer](mailto:mbaillahi@pca.ma) for more details.
+**N.B :** You can also do this with your custom keycloak rest api SPI, contact the [maintainer](mailto:baillahiamine1@gmail.com) for more details.
 
 ### How it works 🤔 :
 - Generate your .jar file with :
@@ -30,7 +30,7 @@ to undeploy your SPI just remove the pasted .jar file from the **deployments** k
 To contribute to this project, just clone it with :
 
 ````shell
-git clone https://pcadev@dev.azure.com/pcadev/MAI/_git/Keycloak_SPI
+git clone https://github.com/keycloak-customization/keycloak-user-storage-SPI
 ````
 
 then create your custom PR as a new branch, all contributions are most welcome 😉.
